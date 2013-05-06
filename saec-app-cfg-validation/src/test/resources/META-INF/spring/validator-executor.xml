@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="validatorExecutor" class="com.bfds.validation.execution.ValidatorExecutorImpl"
+          p:validationListeners-ref="validationListeners"
+          p:messageListeners-ref="messageListeners"/>
+
+    <util:list id="validationListeners" scope="prototype" value-type="com.bfds.validation.execution.ValidationListener">
+        <bean class="com.bfds.validation.message.LoggingValidationListener"/>
+    </util:list>
+
+    <util:list id="messageListeners" scope="prototype" value-type="com.bfds.validation.message.MessageListener">
+        <bean class="com.bfds.validation.message.JpaPersistenceMessageListener"/>
+    </util:list>
+
+</beans>

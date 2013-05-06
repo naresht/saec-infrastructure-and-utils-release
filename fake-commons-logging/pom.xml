@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>commons-logging</artifactId>
+	<groupId>commons-logging</groupId>
+	<version>99.0.3.EMPTY-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>fake-commons-logging</name>
+
+	<description>Creates an empty JAR to allow us to use dependency management to
+	this version to exclude commons logging.</description>
+
+
+	<scm>
+		<url>scm:git:git@github.com:BFDS/saec-infrastructure-and-utils.git</url>
+		<connection>scm:git:git@github.com:BFDS/saec-infrastructure-and-utils.git</connection>
+		<developerConnection>scm:git:git@github.com:BFDS/saec-infrastructure-and-utils.git</developerConnection>
+	</scm>
+
+	  <!-- Deploy releases and snapshots to the CloudBees maven repositories -->
+	<distributionManagement>
+		<repository>
+		  <id>saec-cloudbees-release</id>
+		  <name>saec-cloudbees-release</name>
+		  <!-- Webdav repository url are prefixed with dav: -->
+		  <url>dav:https://repository-bfds.forge.cloudbees.com/release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>saec-cloudbees-snapshot</id>
+			<name>saec-cloudbees-snapshot</name>
+			<url>dav:https://repository-bfds.forge.cloudbees.com/snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<extensions>
+		  <!-- Extension required to deploy a snapshot or a release to the CloudBees remote maven repository using Webdav -->
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
+		<plugins>
+		  <!-- Plugin used to process release using the command line: mvn release:prepare release:perform -->
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-release-plugin</artifactId>
+			<version>2.2.2</version>
+		  </plugin>
+
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-source-plugin</artifactId>
+			<version>2.1.2</version>
+			<configuration>
+			  <encoding>UTF-8</encoding>
+			</configuration>
+		  </plugin>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<version>2.7</version>
+		  </plugin>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>2.7</version>
+		  </plugin>
+			<plugin>
+				<!-- http://maven.apache.org/plugins/maven-resources-plugin/ -->
+				<!-- NOTE: Nothing gets copied, but this is to shut maven up -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

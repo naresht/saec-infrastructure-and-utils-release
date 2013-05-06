@@ -1,0 +1,6 @@
+<aspectj>
+<aspects>
+<aspect name="com.bfds.saec.batch.scheduling.SaecJobLauncher_Roo_JavaBean"/>
+</aspects>
+</aspectj>
+

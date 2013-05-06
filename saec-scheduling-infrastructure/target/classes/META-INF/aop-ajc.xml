@@ -1,0 +1,27 @@
+<aspectj>
+<aspects>
+<aspect name="com.bfds.scheduling.domain.Holiday_Roo_Jpa_Entity"/>
+<aspect name="com.bfds.scheduling.domain.JobConfig_Roo_JavaBean"/>
+<aspect name="com.bfds.scheduling.domain.Holiday_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.bfds.scheduling.domain.JobConfig_Roo_ToString"/>
+<aspect name="com.bfds.scheduling.domain.FileConfig_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.JobConfig_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.bfds.scheduling.domain.Holiday_Roo_JavaBean"/>
+<aspect name="com.bfds.scheduling.domain.ScheduleConfig_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.FileConfig_Roo_JavaBean"/>
+<aspect name="com.bfds.scheduling.domain.MailingList_Roo_Finder"/>
+<aspect name="com.bfds.scheduling.domain.MailingList_Roo_Jpa_Entity"/>
+<aspect name="com.bfds.scheduling.domain.ScheduleConfig_Roo_ToString"/>
+<aspect name="com.bfds.scheduling.domain.MailingList_Roo_JavaBean"/>
+<aspect name="com.bfds.scheduling.domain.Holiday_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.JobConfig_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.MailingList_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.ScheduleConfig_Roo_JavaBean"/>
+<aspect name="com.bfds.scheduling.domain.FileConfig_Roo_ToString"/>
+<aspect name="com.bfds.scheduling.domain.JobConfig_Roo_Jpa_Entity"/>
+<aspect name="com.bfds.scheduling.domain.Holiday_Roo_ToString"/>
+<aspect name="com.bfds.scheduling.domain.MailingList_Roo_ToString"/>
+<aspect name="com.bfds.scheduling.domain.MailingList_Roo_Jpa_ActiveRecord"/>
+</aspects>
+</aspectj>
+

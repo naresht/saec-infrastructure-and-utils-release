@@ -1,0 +1,10 @@
+<aspectj>
+<aspects>
+<aspect name="com.bfds.validation.message.Message_Roo_Jpa_Entity"/>
+<aspect name="com.bfds.validation.message.Message_Roo_JavaBean"/>
+<aspect name="com.bfds.validation.message.Message_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.bfds.validation.message.Message_Roo_Configurable"/>
+<aspect name="com.bfds.validation.message.Message_Roo_ToString"/>
+</aspects>
+</aspectj>
+

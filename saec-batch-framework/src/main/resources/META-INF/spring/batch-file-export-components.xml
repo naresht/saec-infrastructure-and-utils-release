@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fileExportParametersValidator" class="org.springframework.batch.core.job.DefaultJobParametersValidator"
+          p:requiredKeys="outputResource,fileRecordClass,dda" />
+
+
+    <bean id="fileExportReader" class="org.springframework.batch.item.database.DefaultFileRecordJpaItemReader" scope="step"
+          p:entityManagerFactory-ref="batchFilesEntityManagerFactory"
+          p:queryProvider-ref="jpaQueryProviderDelegate"
+          p:pageSize="1000" />
+
+    <bean id="jpaQueryProviderDelegate" class="org.springframework.batch.item.database.orm.JpaQueryProviderDelegate" scope="step" />
+
+    <bean id="fileExportQueryProvider" class="org.springframework.batch.item.database.orm.DefaultFileRecordQueryProvider" scope="step" />
+
+    <bean id="fileExportProcessorDelegate" class="org.springframework.batch.item.FileExportProcessorDecorator" scope="step"/>
+
+    <bean id="fileExportWriter" class="org.springframework.batch.item.file.FileExportItemWriter" scope="step"
+          p:resource="#{jobParameters['outputResource']}"
+          p:headerCallback-ref="fileExportHeaderCallBack"
+          p:footerCallback-ref="fileExportFooterCallback"
+          p:lineAggregator-ref="fileExportLineAggregator" />
+
+    <bean id="fileExportHeaderCallBack" class="org.springframework.batch.item.file.FileExportHeaderCallBackDelegate" scope="step"/>
+
+    <bean id="fileExportFooterCallback" class="org.springframework.batch.item.file.FileExportFooterCallBackDelegate" scope="step" />
+
+    <bean id="fileExportLineAggregator" class="org.springframework.batch.item.file.transform.FileExportLineAggregatorDelegate" scope="step"/>
+
+    <bean id="defaultFileExportLineAggregator" class="org.springframework.batch.item.file.transform.DelimitedLineAggregator" scope="step"
+          p:delimiter=""
+          p:fieldExtractor-ref="fileExportFieldExtractorDelegate"/>
+
+    <bean id="fileExportFieldExtractorDelegate" class="org.springframework.batch.item.file.transform.FileExportFieldExtractorDelegate"  scope="step" />
+
+    <bean id="defaultFileExportFieldExtractor" class="org.springframework.batch.item.file.transform.DefaultFileExportFieldExtractor"  scope="step" />
+
+    <!-- JAXB WRITER-->
+    <bean id="staxEventItemWriterProxy" class="org.springframework.batch.item.xml.DefaultStaxEventItemWriter" scope="step"
+          p:resource="#{jobParameters['outputResource']}"
+          p:marshaller-ref="defaultJaxb2Marshaller" />
+
+</beans>
+

@@ -1,0 +1,13 @@
+<aspectj>
+<aspects>
+<aspect name="com.bfds.scheduling.domain.HolidayIntegrationTest_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.HolidayDataOnDemand_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.JobConfigIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.bfds.scheduling.domain.JobConfigIntegrationTest_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.HolidayIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.bfds.scheduling.domain.HolidayDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.bfds.scheduling.domain.JobConfigDataOnDemand_Roo_Configurable"/>
+<aspect name="com.bfds.scheduling.domain.JobConfigDataOnDemand_Roo_DataOnDemand"/>
+</aspects>
+</aspectj>
+

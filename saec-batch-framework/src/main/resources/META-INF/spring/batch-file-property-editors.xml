@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="assumedDecimalNumberEditor"
+          class="com.bfds.saec.batch.format.propertyeditors.AssumedDecimalNumberEditorWrapper"
+          p:decimalPlaces="2"
+          p:numberClass="java.lang.Double" />
+
+    <bean id="paddedTextEditor"
+          class="com.bfds.saec.batch.format.propertyeditors.PaddedStringEditorWrapper"
+          p:padding="RPAD"
+          p:paddingChar=" "
+          abstract="true" />
+
+    <bean id="paddedNumberEditor"
+          class="com.bfds.saec.batch.format.propertyeditors.PaddedStringEditorWrapper"
+          p:padding="LPAD"
+          p:paddingChar="0"
+          abstract="true" />
+
+    <bean id="paddedNumberEditor_10"
+          parent="paddedNumberEditor"
+          p:size="10" />
+
+    <bean id="paddedNumberEditor_11"
+          parent="paddedNumberEditor"
+          p:size="11" />
+
+    <bean id="paddedNumberEditor_13"
+          parent="paddedNumberEditor"
+          p:size="13" />
+
+    <bean id="paddedNumberEditor_18"
+          parent="paddedNumberEditor"
+          p:size="18" />
+
+    <bean id="customDateEditor"
+          class="com.bfds.saec.batch.format.propertyeditors.CustomDateEditorWrapper"
+          abstract="true" />
+
+    <bean id="YYMMDDEditor"
+          parent="customDateEditor"
+          p:format="YYMMDD" />
+
+    <bean id="MMDDYYEditor"
+          parent="customDateEditor"
+          p:format="MMDDYY" />
+
+    <bean id="MMDDYYYYEditor"
+          parent="customDateEditor"
+          p:format="MMDDYYYY" />
+
+    <bean id="YYYYMMDDEditor"
+          parent="customDateEditor"
+          p:format="YYYYMMDD" />
+
+    <bean id="chainedEditor"
+          class="com.bfds.saec.batch.format.propertyeditors.CompositeEditorWrapper"
+          abstract="true" />
+
+</beans>
+

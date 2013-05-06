@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fileImportParametersValidator"
+          class="org.springframework.batch.core.job.DefaultJobParametersValidator"
+          p:requiredKeys="inputResource,fileRecordClass,dda" />
+
+    <bean id="fileRecordStepListener" class="org.springframework.batch.core.listener.FlatFileRecordStepListener" scope="step" >
+        <constructor-arg name="stepExecution" value="#{stepExecution}"></constructor-arg>
+    </bean>
+
+    <bean id="fileRecordItemReader" class="org.springframework.batch.item.file.DelegatingFlatFileRecordItemReader" scope="step" />
+
+    <bean id="flatFileRecordItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step"
+          p:resource="#{jobParameters['inputResource']}"
+          p:lineMapper-ref="lineMapper" />
+
+    <bean id="lineMapper" class="org.springframework.batch.item.file.mapping.FileRecordLineMapperDecorator" scope="step" />
+
+    <bean id="defaultFileRecordLineMapper" class="org.springframework.batch.item.file.mapping.DefaultFileRecordLineMapper" scope="step" />
+
+    <bean id="defaultFlatFileFieldSetMapper" class="org.springframework.batch.item.file.mapping.FlatFileFieldSetMapper" scope="prototype"
+          p:targetType="java.lang.Object"/>
+
+    <bean id="fileRecordItemProcessor" class="org.springframework.batch.item.FileImportProcessorDecorator" scope="step" />
+
+    <bean id="fileRecordItemWriter" class="org.springframework.batch.item.database.HibernateStatelessSessionItemWriter" scope="step"
+          p:sessionFactory-ref="batchFilesSessionFactory"  />
+
+<!-- JAXB READER -->
+
+    <bean id="staxEventItemReaderProxy" class="org.springframework.batch.item.xml.StaxEventItemReaderProxy" scope="step"
+          p:resource="#{jobParameters['inputResource']}"/>
+
+    <bean id="xmlFileItemReader" class="org.springframework.batch.item.xml.DefaultStaxEventItemReader" scope="step"
+          p:resource="#{jobParameters['inputResource']}"
+          p:unmarshaller-ref="defaultJaxb2Marshaller"/>
+
+    <bean id="defaultJaxb2Marshaller" class="org.springframework.batch.item.xml.DefaultJaxb2Marshaller" scope="step" />
+
+</beans>
+

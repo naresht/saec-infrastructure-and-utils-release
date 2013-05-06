@@ -1,0 +1,9 @@
+<aspectj>
+<aspects>
+<aspect name="com.bfds.validation.message.MessageDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.bfds.validation.message.MessageIntegrationTest_Roo_Configurable"/>
+<aspect name="com.bfds.validation.message.MessageIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.bfds.validation.message.MessageDataOnDemand_Roo_Configurable"/>
+</aspects>
+</aspectj>
+

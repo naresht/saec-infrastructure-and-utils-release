@@ -1,0 +1,24 @@
+<aspectj>
+<aspects>
+<aspect name="com.bfds.saec.batch.format.propertyeditors.PaddedStringEditorWrapper_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileRecord_Roo_ToString"/>
+<aspect name="com.bfds.saec.batch.format.propertyeditors.CustomDateEditorWrapper_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileItemError_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.format.propertyeditors.AssumedDecimalNumberEditorWrapper_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.format.propertyeditors.CompositeEditorWrapper_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileItem_Roo_ToString"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileRecord_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.file.domain.VendorConfig_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileItemError_Roo_ToString"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileItemError_Roo_Configurable"/>
+<aspect name="com.bfds.saec.batch.file.domain.VendorConfig_Roo_Configurable"/>
+<aspect name="com.bfds.saec.batch.annotations.RangeVo_Roo_JavaBean"/>
+<aspect name="com.bfds.saec.batch.file.domain.VendorConfig_Roo_ToString"/>
+<aspect name="com.bfds.saec.batch.file.domain.VendorConfig_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileItemError_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.bfds.saec.batch.file.domain.FileItemError_Roo_Jpa_Entity"/>
+<aspect name="com.bfds.saec.batch.file.domain.VendorConfig_Roo_Jpa_Entity"/>
+<aspect name="com.bfds.saec.batch.annotations.RangeVo_Roo_ToString"/>
+</aspects>
+</aspectj>
+
